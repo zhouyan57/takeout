@@ -121,4 +121,18 @@ public class EmployeeController {
         Employee employee = employeeService.getById(id);
         return Result.success(employee);
     }
+
+    /**
+     * 编辑员工信息
+     * @param employeeDTO
+     * @return
+     */
+    // 提交过来的是JSON格式的数据 所以加个@RequestBody注解
+    @PutMapping
+    @ApiOperation("编辑员工信息")
+    public Result update(@RequestBody EmployeeDTO employeeDTO){
+        log.info("编辑员工信息：{}",employeeDTO);
+        employeeService.update(employeeDTO);
+        return Result.success();
+    }
 }
