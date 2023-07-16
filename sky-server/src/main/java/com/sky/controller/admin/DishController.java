@@ -11,6 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * ClassName: DishController
  * Package: com.sky.controller.admin
@@ -54,5 +56,19 @@ public class DishController {
         log.info("菜品分页查询：{}", dishPageQueryDTO);
         PageResult pageResult = dishService.pageQuery(dishPageQueryDTO);
         return Result.success(pageResult);
+    }
+
+    /**
+     * 菜品批量删除
+     * @param ids
+     * @return
+     */
+    @DeleteMapping
+    @ApiOperation("菜品批量删除")
+    public Result delete(@RequestParam List<Long> ids){
+        // 参数(String ids) -> (List<Long> ids) 加上@RequestParam注解后，由MVC框架就可解析字符串并且把id提取出来，封装到集合对象中
+        log.info("菜品批量删除：{}",ids);
+        dishService.deleteBatch(ids);
+        return Result.success();
     }
 }
