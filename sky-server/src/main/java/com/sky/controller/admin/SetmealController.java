@@ -39,4 +39,16 @@ public class SetmealController {
         setmealService.saveWithDish(setmealDTO);
         return Result.success();
     }
+
+    /**
+     * 分页查询
+     * @param setmealPageQueryDTO
+     * @return
+     */
+    @GetMapping("/page")
+    @ApiOperation("分页查询")
+    public Result<PageResult> page(SetmealPageQueryDTO setmealPageQueryDTO){
+        PageResult pageResult = setmealService.pageQuery(setmealPageQueryDTO);
+        return Result.success(pageResult);
+    }
 }
