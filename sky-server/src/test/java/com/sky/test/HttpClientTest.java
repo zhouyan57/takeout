@@ -21,7 +21,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @Create: 2023/7/17 - 8:59
  * @version: v1.0
  */
-@SpringBootTest
+//@SpringBootTest
 public class HttpClientTest {
 
     /**
