@@ -22,6 +22,14 @@ public interface SetmealMapper {
     Integer countByCategoryId(Long id);
 
     /**
+     * 根据id修改套餐
+     *
+     * @param setmeal
+     */
+    @AutoFill(OperationType.UPDATE)
+    void update(Setmeal setmeal);
+
+    /**
      * 新增套餐
      * @param setmeal
      */
@@ -49,4 +57,6 @@ public interface SetmealMapper {
      */
     @Delete("delete from setmeal where id = #{id}")
     void deleteById(Long setmealId);
+
+
 }
